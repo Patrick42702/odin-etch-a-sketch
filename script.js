@@ -1,6 +1,12 @@
+function calculateWH(size){
+    const square = document.querySelector('.square');
+    square.style['height'] = 0;
+}
+
+
 function createGraph(size) {
 
-  const container = document.querySelector('.body');
+  const container = document.querySelector('.layout');
 
   const graphContainer = document.createElement("div");
   graphContainer.classList.add("graph-container");
@@ -17,5 +23,6 @@ function createGraph(size) {
     graphContainer.appendChild(rowContainer);
   }
 }
+
 
 createGraph(4);
