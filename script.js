@@ -1,8 +1,12 @@
-function calculateWH(size){
-    const square = document.querySelector('.square');
-    square.style['height'] = 0;
-}
+function scaleGrid(size){
+  const height = 512;
+  const width = 512;
 
+  const squareHeight = height / size;
+  const squareWidth = width / size;
+  return `height: ${squareHeight}px; width: ${squareWidth}px;`;
+  
+}
 
 function createGraph(size) {
 
@@ -22,7 +26,13 @@ function createGraph(size) {
     }
     graphContainer.appendChild(rowContainer);
   }
+
+  const square = document.querySelectorAll('.square');
+
+  squareProperties = scaleGrid(size);
+  
+  square.forEach(box => box.style.cssText = squareProperties);
 }
 
 
-createGraph(4);
+createGraph(32);
