@@ -1,16 +1,14 @@
-function scaleGrid(size){
+function scaleGrid(size) {
   const height = 512;
   const width = 512;
 
   const squareHeight = height / size;
   const squareWidth = width / size;
   return `height: ${squareHeight}px; width: ${squareWidth}px;`;
-  
 }
 
 function createGraph(size) {
-
-  const container = document.querySelector('.layout');
+  const container = document.querySelector(".layout");
 
   const graphContainer = document.createElement("div");
   graphContainer.classList.add("graph-container");
@@ -27,12 +25,23 @@ function createGraph(size) {
     graphContainer.appendChild(rowContainer);
   }
 
-  const square = document.querySelectorAll('.square');
+  const square = document.querySelectorAll(".square");
 
   squareProperties = scaleGrid(size);
-  
-  square.forEach(box => box.style.cssText = squareProperties);
+
+  square.forEach((box) => (box.style.cssText = squareProperties));
 }
 
+createGraph(25);
 
-createGraph(32);
+const square = document.querySelectorAll(".square");
+
+function handleHover(box) {
+  box.style['background-color'] = "gray";
+}
+
+square.forEach((box) => {
+  box.addEventListener("mouseenter", () => {
+    handleHover(box);
+  });
+});
